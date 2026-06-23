@@ -1,7 +1,6 @@
 package com.katerin.demo.controladores;
 
 import com.katerin.demo.modelos.Cancion;
-import com.katerin.demo.repositorios.RepositorioCanciones;
 import com.katerin.demo.servicios.ServicioCanciones;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +24,8 @@ public class ControladorCanciones {
 //Detalle de cancion
 @GetMapping("/canciones/detalle/{idCancion}")
 public String desplegarDetalleCancion(@PathVariable("idCancion")Long id, Model modelo){
-    Cancion c = this.servicioCanciones.obtenerCancionPorId(id);
-    modelo.addAttribute("cancion", c);
+    Cancion cancion = this.servicioCanciones.obtenerCancionPorId(id);
+    modelo.addAttribute("cancion", cancion);
     return  "detalleCancion.jsp";
 }
 

@@ -6,16 +6,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Canciones</title>
 </head>
 <body>
     <h1>Canciones:</h1>
-    <ul>
-        <c:forEach var="cancion" items="${listaCanciones}">
-                    <li>${cancion.titulo}</li>
-                    <li>${cancion.artista}</li>
-        </c:forEach>
-        <a href="/canciones/detalle/{idCancion}">Volver</a>
-    </ul>
+    <table>
+        <thead>
+            <tr class="header">
+                <th>Título</th>
+                <th>Autor</th>
+                <th>Detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="cancion" items="${listaCanciones}">
+                <tr class="header">
+                    <td>${cancion.titulo} </td>
+                    <td>${cancion.artista}</td>
+                    <td>
+                        <a class="btn-1" href="/canciones/detalle/${cancion.id}">Detalle</a>
+                    </td>
+                </tr>              
+            </c:forEach>
+        </tbody>
+    </table>
 </body>
 </html>

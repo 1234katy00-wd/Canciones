@@ -61,11 +61,11 @@ public class Cancion {
         this.id = id;
     }
 
-    public String getTiulo() {
+    public String getTitulo() {
         return titulo;
     }
 
-    public void setTiulo(String tiulo) {
+    public void setTitulo(String tiulo) {
         this.titulo = tiulo;
     }
 
