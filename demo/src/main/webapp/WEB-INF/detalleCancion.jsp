@@ -27,6 +27,8 @@
     </c:choose>
 
     <a class="btn-1" href="/canciones">Volver</a>
+
+    <a class="btn-1" href="/canciones/formulario/editar/${idCancion}">Actualizar la canción</a>
     
 </body>
 </html>
