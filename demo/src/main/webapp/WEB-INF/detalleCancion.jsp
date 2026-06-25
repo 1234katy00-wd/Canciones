@@ -10,7 +10,7 @@
     <title>Detalle canciones</title>
 </head>
 <body>
-    <h1>Detalle canciones:</h1>
+    <h1>Detalle de canción:</h1>
     <c:choose>
         <c:when test="${not empty cancion}"> 
         <h2>Título: ${cancion.titulo}</h2>
@@ -19,7 +19,6 @@
                 <li>ÁLbum: ${cancion.album}</li>
                 <li>Género: ${cancion.genero}</li>
                 <li>Idioma: ${cancion.idioma}</li>
-                <li>Fecha Creación: ${cancion.fecha_creacion}</li>
             </ul>
             </c:when>
             <c:otherwise>

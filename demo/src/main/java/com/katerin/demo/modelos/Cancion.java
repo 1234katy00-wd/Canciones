@@ -3,6 +3,8 @@ package com.katerin.demo.modelos;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
@@ -24,28 +26,30 @@ public class Cancion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message= "Este campo es obligatorio")
-    @Size(max=40, message = "Debe contener máximo 40 caracteres.")
+    @Size(min = 5, message = "Al menos 5 caracteres de longitud.")
     private String titulo;
 
-    @Size(max =80, message = "Debe contener máximo 40 caracteres.")
+    @Size(min = 3, message = "Al menos 3 caracteres de longitud.")
     private String artista;
 
-    @Size(max =40, message = "Debe contener máximo 40 caracteres.")
+    @Size(min = 3, message = "Al menos 3 caracteres de longitud.")
     private String album;
 
-    @Size(max=40, message = "Debe contener máximo 40 caracteres.")
+    @Size(min = 3, message = "Al menos 3 caracteres de longitud.")
     private String genero;
 
-    @Size(max=20, message = "Debe contener máximo 40 caracteres.")
+    @Size(min = 3, message = "Al menos 3 caracteres de longitud.")
     private String idioma;
 
+
+    @CreationTimestamp
     @Column (updatable=false, name="fecha_creacion")
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    //@DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate fecha_creacion;
     
+    @UpdateTimestamp
     @Column (name="fecha_actualizacion")
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    //@DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate fecha_actualizacion;
 
 
@@ -108,22 +112,13 @@ public class Cancion {
     public void setFecha_creacion(LocalDate fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
     }
-
-    @PrePersist
-    protected void onCreate (){
-        this.fecha_creacion= LocalDate.now();
-        this.fecha_actualizacion=LocalDate.now();
-    }
-    @PreUpdate
-    protected void onUpdate(){
-        this.fecha_actualizacion=LocalDate.now();
+    public void setFecha_actualizacion(LocalDate fecha_actualizacion) {
+        this.fecha_actualizacion = fecha_actualizacion;
     }
 
-
+    public LocalDate getFecha_actualizacion() {
+        return fecha_actualizacion;
+    }
     
-
-
-
-
     
 }

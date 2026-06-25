@@ -8,20 +8,44 @@
     background-color: rgb(164, 230, 230);
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .header{
     justify-content:space-between;
-    display: flex;
-    flex-wrap: wrap;
     text-align: center;
+    height: 35px;
+    
+}
 
+li {
+    list-style-type: none;
+    text-decoration: none;
 }
 .header td{
-    margin: 5px;
+    margin: 20px;
 }
 
 h1{
     background-color: rgb(129, 224, 224);
     height: 35px;
+    width: 900px;
+    align-items: center;
     justify-content: center;
     display: flex;
+}
+
+form{
+    width: 350px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.error{
+    color: red;
 }
