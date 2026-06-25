@@ -34,4 +34,8 @@ public class ServicioCanciones {
         return this.repositorioCanciones.save(cancion);
     }
 
+    //Elliminar
+    public void eliminaCancion(Long id){
+        this.repositorioCanciones.deleteById(id);
+    }
 }

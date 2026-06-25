@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, java.text.*" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%> 
+<%@ page isErrorPage="true" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +30,14 @@
 
     <a class="btn-1" href="/canciones">Volver</a>
 
-    <a class="btn-1" href="/canciones/formulario/editar/${idCancion}">Actualizar la canción</a>
+    <a class="btn-1" href="/canciones/formulario/editar/${cancion.id}">Actualizar la canción</a>
+    
+    <form:form action="/canciones/eliminar/${cancion.id}" method="POST" modelAttribute="cancion">     
+        <input type="hidden" name="_method" value="DELETE"/>
+        
+        <input class="btn-1" type="submit" value="Eliminar"/> 
+    
+    </form:form>  
     
 </body>
 </html>

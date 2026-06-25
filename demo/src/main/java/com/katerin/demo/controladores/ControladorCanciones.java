@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -59,7 +60,7 @@ public String procesarAgregarCancion(@Valid @ModelAttribute("cancion")Cancion ca
         return"editarCancion.jsp";
     }
 
-
+//Actualizar cancion
     @PutMapping("/canciones/procesa/editar/{idCancion}")
     public String procesarEditarCancion(@Valid @ModelAttribute("cancion")Cancion cancion, BindingResult validaciones, @PathVariable("idCancion")Long idCancion){
     if(validaciones.hasErrors()){
@@ -68,6 +69,12 @@ public String procesarAgregarCancion(@Valid @ModelAttribute("cancion")Cancion ca
         cancion.setId(idCancion);
         this.servicioCanciones.actualizaCancion(cancion);
         return "redirect:/canciones";
-        
+    }
+
+//Eliminar 
+    @DeleteMapping("/canciones/eliminar/{idCancion}")
+    public String procesarEliminarCancion(@PathVariable("idCancion")Long id){
+        this.servicioCanciones.eliminaCancion(id);
+        return"redirect:/canciones";
     }
 }
